@@ -16,7 +16,7 @@ module Scan
       prevalidate
 
       # Detect the project if not SPM package
-      if Scan.config[:package_path].nil?
+      if Scan.config[:package_path].nil? && !Scan.config[:xctestrun]
         FastlaneCore::Project.detect_projects(config)
         Scan.project = FastlaneCore::Project.new(config)
 
